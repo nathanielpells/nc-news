@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import Header from "./Components/Header";
+import { useState } from "react";
+import { UserContext } from "../src/Contexts/UserContext";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState("tickle122");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+        </div>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 
