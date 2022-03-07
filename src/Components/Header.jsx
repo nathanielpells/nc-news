@@ -4,5 +4,5 @@ import {useContext} from "react"
 export default function Header() {
   const {currentUser} = useContext(UserContext)
   return <><h1>NC-News</h1>
- <span> User: {currentUser}</span></>
+ <span id="user"> User: {currentUser}</span></>
 }
