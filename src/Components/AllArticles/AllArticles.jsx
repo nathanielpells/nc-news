@@ -19,8 +19,10 @@ export default function AllArticles() {
           {articleList.map((article) => {
             return ( 
               <li className="ArticleList" key={article.article_id}>
-                <><span>
-                {article.title}. Topic: {article.topic}. Author: {article.author}.
+                <><span className="card-cont">
+                {article.title}. <br></br>
+                Topic: {article.topic}. <br></br>
+                Author: {article.author}.<br></br>
                 </span></>
               <Link to="/articles/:article_id"> Read More</Link>
               </li>
