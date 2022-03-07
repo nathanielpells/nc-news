@@ -1,8 +1,10 @@
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
-import Header from "./Components/Header";
 import { useState } from "react";
 import { UserContext } from "../src/Contexts/UserContext";
+import Header from "./Components/Header";
+import Navigation from "./Components/Navigation";
+import Body from "./Components/Body";
 
 function App() {
   const [currentUser, setCurrentUser] = useState("tickle122");
@@ -11,6 +13,8 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Header />
+          <Navigation />
+          <Body />
         </div>
       </BrowserRouter>
     </UserContext.Provider>
