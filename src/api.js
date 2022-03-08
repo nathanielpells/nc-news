@@ -16,3 +16,9 @@ export const getArticleById = (article_id) => {
     return res.data;
   });
 };
+
+export function patchUserVote(article_id, inc) {
+  return newsApi.patch(`/articles/${article_id}`, {
+    votes_inc: inc,
+  });
+}

@@ -1,6 +1,7 @@
 import {getArticleById} from "../../api"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import GiveVote from "./GiveVote"
 
 export default function IndividualArticle() {
   const [article, setArticle] = useState('');
@@ -26,6 +27,7 @@ export default function IndividualArticle() {
         <li>Posted: {article.created_at} </li>
         <li>Topic: {article.topic}</li>
         <li>Votes: {article.votes}</li>
+        <GiveVote article={article}  />
       </ul>
     </article>
   );
