@@ -2,8 +2,9 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://np-news.herokuapp.com/api";
 
-export function getArticles() {
-  return axios.get(`/articles`).then(({ data }) => {
-    return data.articles;
-  });
+export async function getArticles(topic) {
+  const {
+    data: { articles },
+  } = await axios.get(`/articles`, { params: { topic } });
+  return articles;
 }

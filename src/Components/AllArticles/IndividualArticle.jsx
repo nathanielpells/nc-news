@@ -1,5 +1,5 @@
-import AllArticles from "./AllArticles";
+
 
 export default function IndividualArticle() {
-    // return <h2>{article.title}</h2>
+    return <h2>individual article</h2>
   }
