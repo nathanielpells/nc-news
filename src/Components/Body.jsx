@@ -12,7 +12,7 @@ export default function Body() {
       <Route path="/articles/topics/coding" element={<Coding />} />
       <Route path="/articles/topics/football" element={<Football />} />
       <Route path="/articles/topics/cooking" element={<Cooking />} />
-      <Route path="/articles/articles/:article_id" element={<IndividualArticle />} />
+      <Route path="/articles/:article_id" element={<IndividualArticle />} />
     </Routes>
   );
 }
