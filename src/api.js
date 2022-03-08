@@ -1,10 +1,18 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://np-news.herokuapp.com/api";
+const newsApi = axios.create({
+  baseURL: "https://np-news.herokuapp.com/api",
+});
 
-export async function getArticles(topic) {
-  const {
-    data: { articles },
-  } = await axios.get(`/articles`, { params: { topic } });
-  return articles;
-}
+export const getArticles = (topic) => {
+  return newsApi.get(`articles`, { params: { topic } }).then((res) => {
+    return res.data.articles;
+  });
+};
+
+export const getArticleById = (article_id) => {
+  console.log(article_id);
+  return newsApi.get(`/articles/${article_id}`).then((res) => {
+    return res.data;
+  });
+};

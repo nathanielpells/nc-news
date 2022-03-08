@@ -32,7 +32,7 @@ export default function Articles() {
               Topic: {article.topic}. <br></br>
               Author: {article.author}.<br></br>
               </p></>
-            <Link to="/articles/:article_id"> Read More</Link>
+            <Link to={`/articles/${article.article_id}`}> Read More</Link>
             </li>
           )
         })}
