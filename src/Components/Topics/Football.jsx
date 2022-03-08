@@ -25,9 +25,9 @@ export default function Football() {
           return ( 
             <li className="ArticleList" key={article.article_id}>
               <>
-              <hr class="mw3 bb bw1 b--black-10"></hr>
+              <hr className="mw3 bb bw1 b--black-10"></hr>
               <h4  >{article.title}</h4>
-              <p class="lh-copy measure center f6 black-70">
+              <p className="lh-copy measure center f6 black-70">
               Topic: {article.topic}. <br></br>
               Author: {article.author}.<br></br>
               </p></>
