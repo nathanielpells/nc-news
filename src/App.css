@@ -19,11 +19,6 @@
   padding: 10px;
 }
 
-/* .ArticleList {
-  display: grid;
-  padding: 10px;
-  text-align: left;
-} */
 .ba {
   border-style: solid;
   border-width: 1px;
@@ -122,4 +117,7 @@ ul {
 }
 h4 {
   margin: 7%;
+}
+.Back-Link {
+  float: left;
 }

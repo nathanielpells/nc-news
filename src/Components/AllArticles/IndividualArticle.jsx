@@ -2,6 +2,7 @@ import {getArticleById} from "../../api"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import GiveVote from "./GiveVote"
+import { Link } from "react-router-dom"
 
 export default function IndividualArticle() {
   const [article, setArticle] = useState('');
@@ -31,12 +32,14 @@ export default function IndividualArticle() {
         <dt>Author: {article.author} </dt>
         <hr className="mw3 bb bw1 b--black-10"></hr>
         <dt>Comments: {article.comment_count} </dt>
+        <Link to={`/articles/${article.article_id}/comments`}>Read Comments</Link>
         <hr className="mw3 bb bw1 b--black-10"></hr>
         <dt>Posted: {new Date(article.created_at).toUTCString()} </dt>
         <hr className="mw3 bb bw1 b--black-10"></hr>
         <dt>Topic: {article.topic}</dt>
         <hr className="mw3 bb bw1 b--black-10"></hr>
         <dt> <GiveVote votes={article.votes}  />  </dt>
+        
         
       </dl>
     </article>
