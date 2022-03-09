@@ -12,7 +12,6 @@ export default function GiveVote({votes}) {
         setError(null)
       ;
       patchArticleVotes(article_id, inc).catch((error) => {
-        console.log(article_id)
         setChange((currentChange) => currentChange - inc);
         setError("votes not updated");
         setChange(0);
