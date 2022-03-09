@@ -17,8 +17,6 @@ export const getArticleById = (article_id) => {
   });
 };
 
-export function patchUserVote(article_id, inc) {
-  return newsApi.patch(`/articles/${article_id}`, {
-    votes_inc: inc,
-  });
-}
+export const patchArticleVotes = (article_id, inc) => {
+  return newsApi.patch(`/articles/${article_id}`, { inc_votes: inc });
+};
