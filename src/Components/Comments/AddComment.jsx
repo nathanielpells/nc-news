@@ -10,14 +10,13 @@ export default function AddComment({setCommentList}){
 
 
     const addComment = ()=> {
-        Array.from(document.querySelectorAll("input")).forEach(
-            input => (input.value = "")
-          );
+       
         postComment(article_id, currentUser, newComment).then((commentFromApi)=> {
             setCommentList((currentCommentList)=>{
                 const updatedCommentList = [commentFromApi,...currentCommentList]
                 return updatedCommentList
             })
+            setNewComment("")
         })
 
     }
@@ -27,7 +26,7 @@ return (
         <p>Comment: </p>
         <input
         type="text"
-        value={newComment.body}
+        value={newComment}
         onChange={(e) => {
             setNewComment(e.target.value)
         }}
