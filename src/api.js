@@ -25,3 +25,15 @@ export const getArticleComments = (article_id) => {
     return res.data;
   });
 };
+
+export const postComment = (article_id, username, body) => {
+  return newsApi
+    .post(`/articles/${article_id}/comments`, {
+      username: username,
+      body: body,
+    })
+    .then((res) => {
+      return res.data.comment;
+    });
+};
+//need article id, commentid and body

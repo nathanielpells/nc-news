@@ -11,7 +11,7 @@ function App() {
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
       <BrowserRouter>
-        <div className="App">
+        <div id="app" className={`App__${currentUser}`}>
           <Header />
           <Navigation />
           <Body />
