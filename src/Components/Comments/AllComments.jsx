@@ -2,6 +2,7 @@ import { getArticleById, getArticleComments } from "../../api"
 import { useEffect, useState,  } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import AddComment from "./AddComment";
 
 export default function Comments(props){
     
@@ -31,6 +32,7 @@ export default function Comments(props){
         <Link className="Back-Link" to={`/articles/${article.article_id}`}>Back</Link><br></br>
           <h2 className="f4" > {article.title}</h2>
           <h3 className="f4" >Comments:</h3>
+          <AddComment setCommentList={setCommentList}/>
         </div>
           <dl>
               {commentList.map((comment) => {
@@ -41,7 +43,6 @@ export default function Comments(props){
                     <hr className="mw3 bb bw1 b--black-10"></hr>
                     <p className="lh-copy measure center f6 black-70">
                     {comment.body}<br></br></p>
-                    <hr className="mw3 bb bw1 b--black-10"></hr>
                     <dl className="lh-copy measure center f6 black-70">
                       <dt>User: {comment.author}</dt>
                       <dt> Votes: {comment.votes}</dt>
