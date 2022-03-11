@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../Contexts/UserContext";
-import { postComment } from "../../api";
+import { postComment } from "../../Utils/api";
 import { useParams } from "react-router-dom";
 
 export default function AddComment({setCommentList}){

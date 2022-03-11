@@ -1,4 +1,4 @@
-import {getArticleById} from "../../api"
+import { getArticleById } from "../../Utils/api"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import GiveVote from "./GiveVote"
