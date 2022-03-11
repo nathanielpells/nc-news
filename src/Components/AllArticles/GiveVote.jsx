@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {patchArticleVotes} from "../../api"
+import { patchArticleVotes } from "../../Utils/api";
 import { useParams } from "react-router-dom";
 
 export default function GiveVote({votes}) {
