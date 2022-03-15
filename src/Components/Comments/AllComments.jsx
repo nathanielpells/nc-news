@@ -3,6 +3,7 @@ import { useEffect, useState,  } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import AddComment from "./AddComment";
+import DeleteComment from "./DeleteComment";
 
 export default function Comments(props){
     
@@ -47,6 +48,7 @@ export default function Comments(props){
                       <dt>User: {comment.author}</dt>
                       <dt> Votes: {comment.votes}</dt>
                     </dl></> 
+                    {comment.author === "tickle122" ? <DeleteComment setCommentList={setCommentList} comment_id={comment.comment_id}/> : null}
                     </article>
                   )
               }
