@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { getArticles } from "../../Utils/api";
 import SortArticles from "./SortArticles";
 import OrderArticles from "./OrderArticles";
-
+import ErrorPage from "../ErrorPage";
 
 export default function Articles() {
 
@@ -11,17 +11,25 @@ export default function Articles() {
   const [isLoading, setIsLoading] = useState(false);
   const [sortBy, setSortBy] = useState('created_at');
   const [orderBy, setOrderBy] = useState('ASC');
+  const [error, setError] = useState(null);
   const {topic} = useParams();
+  
 
   useEffect(()=> {
     setIsLoading(true);
     getArticles(topic, sortBy, orderBy).then(({articles}) => {
-     setArticleList(articles)
-     setIsLoading(false);
+      setError(null);
+      setArticleList(articles)
+      setIsLoading(false);
     })
+    .catch((err) => {
+      setIsLoading(false);
+      setError(err.response);
+    });
   }, [topic, sortBy, orderBy])
 
   if (isLoading) return <p>loading...</p>;
+  if (error) return <ErrorPage error={error} />;
   return( 
     <article className="mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
     <div className="tc">

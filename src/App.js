@@ -4,7 +4,7 @@ import { useState } from "react";
 import { UserContext } from "../src/Contexts/UserContext";
 import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
-import Body from "./Components/Body";
+import Paths from "./Components/Paths";
 
 function App() {
   const [currentUser, setCurrentUser] = useState("tickle122");
@@ -14,7 +14,7 @@ function App() {
         <div id="app" className={`App__${currentUser}`}>
           <Header />
           <Navigation />
-          <Body />
+          <Paths />
         </div>
       </BrowserRouter>
     </UserContext.Provider>
