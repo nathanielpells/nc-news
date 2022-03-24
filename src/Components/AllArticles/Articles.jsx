@@ -1,4 +1,4 @@
-import { useEffect, useState,  } from "react";
+import { useEffect, useState, } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getArticles } from "../../Utils/api";
 import SortArticles from "./SortArticles";
@@ -12,51 +12,51 @@ export default function Articles() {
   const [sortBy, setSortBy] = useState('created_at');
   const [orderBy, setOrderBy] = useState('ASC');
   const [error, setError] = useState(null);
-  const {topic} = useParams();
-  
+  const { topic } = useParams();
 
-  useEffect(()=> {
+
+  useEffect(() => {
     setIsLoading(true);
-    getArticles(topic, sortBy, orderBy).then(({articles}) => {
+    getArticles(topic, sortBy, orderBy).then(({ articles }) => {
       setError(null);
       setArticleList(articles)
       setIsLoading(false);
     })
-    .catch((err) => {
-      setIsLoading(false);
-      setError(err.response);
-    });
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err.response);
+      });
   }, [topic, sortBy, orderBy])
 
   if (isLoading) return <p>loading...</p>;
   if (error) return <ErrorPage error={error} />;
-  return( 
+  return (
     <article className="mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
-    <div className="tc">
-      <h2 className="f4" >Articles</h2>
-      <SortArticles sortBy={sortBy} setSortBy={setSortBy} />
-      <OrderArticles orderBy={orderBy} setOrderBy={setOrderBy} />
+      <div className="tc">
+        <h2 className="f4" >Articles</h2>
+        <SortArticles sortBy={sortBy} setSortBy={setSortBy} />
+        <OrderArticles orderBy={orderBy} setOrderBy={setOrderBy} />
       </div>
       <dl>
         {articleList.map((article) => {
-          return ( 
+          return (
             <dt className="ArticleList" key={article.article_id}>
               <>
-              <hr className="mw3 bb bw1 b--black-10"></hr>
-              <h4  >{article.title}</h4>
-              <p className="lh-copy measure center f6 black-70">
-              Topic: {article.topic}. <br></br>
-              Author: {article.author}.<br></br>
-              Comments: {article.comment_count}.<br></br>
-              Votes: {article.votes}<br></br>
-              Posted at: {new Date(article.created_at).toUTCString()}
-              </p></>
-            <Link to={`/articles/${article.article_id}`}> Read More</Link>
+                <hr className="mw3 bb bw1 b--black-10"></hr>
+                <h4  >{article.title}</h4>
+                <p className="lh-copy measure center f6 black-70">
+                  Topic: {article.topic}. <br></br>
+                  Author: {article.author}.<br></br>
+                  Comments: {article.comment_count}.<br></br>
+                  Votes: {article.votes}<br></br>
+                  Posted at: {new Date(article.created_at).toUTCString()}
+                </p></>
+              <Link to={`/article/${article.article_id}`}> Read More</Link>
             </dt>
           )
         })}
       </dl>
-    
+
     </article>
   )
 }
