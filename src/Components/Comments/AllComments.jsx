@@ -30,7 +30,7 @@ export default function Comments(props){
       return( 
         <article className="mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
         <div className="tc">
-        <Link className="Back-Link" to={`/articles/${article.article_id}`}>Back</Link><br></br>
+        <Link className="Back-Link" to={`/article/${article.article_id}`}>Back</Link><br></br>
           <h2 className="f4" > {article.title}</h2>
           <h3 className="f4" >Comments:</h3>
           <AddComment setCommentList={setCommentList}/>
