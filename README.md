@@ -17,3 +17,23 @@ Making calls to the API, the app allows the user the following functionality:
 - View comments relating to a given article
 - Post comments
 - Delete user comment
+
+## Running the App Locally
+
+Before beginning setup, please check you have at least these versions of the following:
+
+- node - v. 17.5.0
+
+After doing so, perform each step, in order:
+
+### Cloning the repository
+
+git clone https://github.com/nathanielpells/nc-news.git
+
+### Install required packages
+
+Run npm install to install the necessary dependencies required.
+
+### Building and running the site
+
+To build and run the site on your local machine, run npm start.
