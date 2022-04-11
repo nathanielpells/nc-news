@@ -4,6 +4,8 @@
 
 nc-news is my front-end project that uses [my news API](https://github.com/nathanielpells/NPells-news) build in the back-end phase of the Northcoders bootcamp.
 
+You can view my hosted application here: https://np-news.netlify.app/
+
 ## What functionality does my app have?
 
 Making calls to the API, the app allows the user the following functionality:
